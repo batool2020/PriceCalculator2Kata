@@ -12,12 +12,28 @@ namespace PriceCalculator2Kata
         public static int Add(String numbers)
         {
             int sum = 0;
+            var negatives = new List<int>();
+            string[] nums = numbers.Split(new Char[] { ',', '\n' });
+
             if (String.IsNullOrEmpty(numbers))
                 return sum;
 
-            string[] nums = numbers.Split(new Char[] { ',', '\n' });
+            foreach(var item in nums)
+            {
+                
+                if (int.Parse(item)< 0)
+                {
+                    negatives.Add(int.Parse(item));
+                }
+            }
+
             foreach (var item in nums)
+            {
+                if (int.Parse(item) < 0)
+                    throw new ArgumentException("Negatives Not Allowed" + negatives);
+
                 sum += int.Parse(item);
+            }
 
             return sum;
         }
