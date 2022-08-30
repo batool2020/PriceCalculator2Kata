@@ -31,8 +31,9 @@ namespace PriceCalculator2Kata
             {
                 if (int.Parse(item) < 0)
                     throw new ArgumentException("Negatives Not Allowed" + negatives);
-
-                sum += int.Parse(item);
+                
+                if(!(int.Parse(item) > 1000))
+                    sum += int.Parse(item);
             }
 
             return sum;

@@ -6,7 +6,7 @@ namespace PriceCalculator2Kata
     {
         static void Main(string[] args)
         {
-            string temp = "1,2,3,-4";
+            string temp = "1,2,3000";
 
             Console.WriteLine($"The sum is { StringCalculator.Add(temp)}");
         }
