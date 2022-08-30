@@ -10,13 +10,14 @@ namespace PriceCalculatorTests
         [InlineData("1,2,3", 6)]
         [InlineData("", 0)]
         [InlineData("1,2\n10", 13)]
+        [InlineData("1,2000,3", 4)]
         public void Add_PositiveNumbers_ReturnInt(string value, int expected)
         {
             int result = StringCalculator.Add(value);
             Assert.Equal(expected, result);
         }
 
-      
+   
         [Theory]
        // [InlineData("1,2,3")]
         [InlineData("1,-2,3")]
