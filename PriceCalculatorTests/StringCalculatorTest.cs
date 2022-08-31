@@ -25,5 +25,16 @@ namespace PriceCalculatorTests
         {
             Assert.Throws<ArgumentException>(() => StringCalculator.Add(value));
         }
+
+        [Theory]
+        [InlineData("//#1,2\n10", 13)]
+        [InlineData("//1\n20 3", 24)]
+        public void Add_Numbers_DifferentDelimiters(string value, int expected)
+        {
+            int result = StringCalculator.Add(value);
+            Assert.Equal(expected, result);
+        }
+
+
     }
 }
